@@ -485,24 +485,18 @@ function [xCoeff, errorR, numPhi1, numPhi2, timing] = numericSSH_LM(varargin)
         fprintf("%s\t\t%s\n", "Interaction Term", "     Interaction Value")
         fprintf("%s\n", "-----------------------------------------------")
 
-        acount = 1;
-        bcount = 1;
+        xcount = 1;
 
         for i = 1:n
             if (i == 1)
 
-                fprintf("%s%d%s%f\n", "a", acount, "(self) . . . . . . . . . . ", xCoeff(i))
-                acount = acount + 1;
+                fprintf("%s%d%s%f\n", "x", xcount, "(self) . . . . . . . . . . ", xCoeff(i))
+                xcount = xcount + 1;
 
-            elseif (rem(i,3) == 1 && i ~= 1)
+            else
 
-                fprintf("%s%d%s%f\n", "a", acount, " . . . . . . . . . . . . . ", xCoeff(i))
-                acount = acount + 1;
-
-            elseif (rem(i,3) ~= 1)
-
-                fprintf("%s%d%s%f\n", "b", bcount, " . . . . . . . . . . . . . ", xCoeff(i))
-                bcount = bcount + 1;
+                fprintf("%s%d%s%f\n", "x", xcount, " . . . . . . . . . . . . . ", xCoeff(i))
+                xcount = xcount + 1;
 
             end
         end
